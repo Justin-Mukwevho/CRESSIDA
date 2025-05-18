@@ -334,29 +334,172 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .navbar .container {
+    
+
+    .steps {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
-    .navbar-nav {
-        margin-top: 1rem;
+    .step {
+        flex-basis: 100%;
         width: 100%;
+    }
+    .footer .container {
         flex-direction: column;
-        gap: 0.5rem; /* Smaller gap for vertical layout */
     }
-    .navbar-nav .nav-link {
-        padding: 0.5rem; /* Make touch targets larger */
-        border-bottom: 1px solid var(--border-color);
+    .footer-nav {
+        margin-top: 0.5rem;
     }
-    .navbar-nav .nav-link:last-child {
-        border-bottom: none;
+    .footer-nav a {
+        margin: 0 0.5rem;
     }
-    .navbar-actions {
-        margin-top: 1rem;
-        width: 100%;
-        justify-content: space-between;
+}
+/* css/style.css additions for Collapsible Navbar */
+
+/* NAVBAR STYLES - Modifications for Collapsible Behavior */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* For positioning the collapsible menu */
+}
+
+.navbar-toggler {
+    display: none; /* Hidden by default, shown on mobile */
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--primary-text-color);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem; /* Larger icon */
+    transition: background-color 0.2s, color 0.2s;
+}
+.navbar-toggler:hover, .navbar-toggler:focus {
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+    border-color: var(--accent-color);
+}
+.navbar-toggler .fa-times { /* For the close icon */
+    /* Style for close icon if you swap it */
+}
+
+
+.navbar-collapse {
+    display: flex; /* On desktop, acts like before */
+    align-items: center;
+    flex-grow: 1; /* Allow it to take space if needed */
+    justify-content: space-between; /* Pushes nav to left, actions to right on desktop */
+}
+
+/* Desktop: .navbar-nav and .navbar-actions are direct children of .navbar-collapse */
+.navbar-collapse .navbar-nav {
+    display: flex;
+    gap: 1.5rem;
+    /* No margin-left needed if using justify-content on parent */
+}
+
+.navbar-collapse .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+/* Mobile Styles -
+   Using a common breakpoint, e.g., 768px or 992px. Let's try 992px for more space on tablets.
+   The previous @media (max-width: 768px) might need adjustment or removal if this handles it better.
+*/
+@media (max-width: 992px) { /* Breakpoint for mobile navbar */
+    .navbar-toggler {
+        display: block; /* Show hamburger */
     }
 
+    .navbar-collapse {
+        display: none; /* Hide collapsible content by default on mobile */
+        flex-direction: column;
+        align-items: stretch; /* Make items take full width */
+        width: 100%;
+        background-color: var(--surface-color);
+        position: absolute;
+        top: 100%; /* Position below the navbar brand and toggler line */
+        left: 0;
+        right: 0;
+        z-index: 999; /* Below main navbar z-index but above page content */
+        border-top: 1px solid var(--border-color);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 1rem 0; /* Padding inside the collapsed menu */
+    }
+    html[data-theme="dark"] .navbar-collapse {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+
+    .navbar-collapse.active { /* Class added by JS to show the menu */
+        display: flex;
+    }
+
+    .navbar-collapse .navbar-nav {
+        flex-direction: column; /* Stack nav links vertically */
+        gap: 0; /* Remove horizontal gap */
+        width: 100%;
+        margin-bottom: 1rem; /* Space between nav links and actions */
+    }
+
+    .navbar-collapse .nav-link {
+        padding: 0.75rem 1.5rem; /* Padding for tappable area, adjust to match container padding */
+        border-bottom: 1px solid var(--border-color);
+        text-align: center; /* Center text */
+    }
+    .navbar-collapse .nav-link:last-child {
+        border-bottom: none;
+    }
+     .navbar-collapse .nav-link::after { /* Remove underline effect on mobile, or style differently */
+        display: none;
+    }
+    .navbar-collapse .nav-link.active,
+    .navbar-collapse .nav-link:hover {
+        background-color: rgba(var(--accent-color-rgb), 0.1); /* Subtle hover/active background */
+        color: var(--accent-color);
+    }
+
+
+    .navbar-collapse .navbar-actions {
+        flex-direction: column; /* Stack action items */
+        align-items: stretch; /* Make buttons full width */
+        gap: 0.75rem;
+        padding: 0 1.5rem; /* Match nav-link padding */
+    }
+    .navbar-collapse .navbar-actions .btn {
+        width: 100%; /* Make buttons full width */
+        text-align: center;
+    }
+    .navbar-collapse .navbar-actions .theme-toggle-btn {
+        /* You might want to style the theme toggle differently in the mobile menu */
+        /* e.g., make it look more like a menu item */
+        padding: 0.75rem;
+        text-align: center;
+    }
+}
+
+/* Remove or adjust the older @media (max-width: 768px) navbar rules if they conflict.
+   The rules inside the old media query for .navbar .container, .navbar-nav, .navbar-actions
+   were making the brand, nav, and actions stack vertically *without* a toggle.
+   This new approach with .navbar-toggler and .navbar-collapse is more standard.
+*/
+
+/* You might need to adjust the existing @media (max-width: 768px) for navbar: */
+@media (max-width: 768px) {
+    /* Keep general 768px rules, but remove specific navbar layout rules that conflict */
+    /* For example, the old rules that did:
+        .navbar .container { flex-direction: column; align-items: flex-start; }
+        .navbar-nav { margin-top: 1rem; width: 100%; flex-direction: column; ... }
+        .navbar-actions { margin-top: 1rem; width: 100%; justify-content: space-between; }
+       These are now handled by the 992px breakpoint and the .navbar-collapse logic.
+       So, you can likely remove those specific navbar rules from the 768px media query.
+    */
+
+    /* Keep other 768px rules for .steps, .footer .container etc. */
     .steps {
         flex-direction: column;
         align-items: center;

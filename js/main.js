@@ -56,4 +56,63 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
+
+    // js/main.js - Add this inside the DOMContentLoaded listener
+
+
+
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const navbarBrand = document.querySelector('.navbar-brand'); // Get brand for toggler alignment
+    const navbarActions = document.querySelector('.navbar-actions'); // Get actions for alignment
+
+    if (navbarToggler && navbarCollapse) {
+        navbarToggler.addEventListener('click', () => {
+            navbarCollapse.classList.toggle('active');
+            // Toggle ARIA attribute for accessibility
+            const isExpanded = navbarCollapse.classList.contains('active');
+            navbarToggler.setAttribute('aria-expanded', isExpanded);
+
+            // Optional: Change hamburger icon to 'X' (times) icon when open
+            const icon = navbarToggler.querySelector('i');
+            if (isExpanded) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Optional: Close mobile menu if a link is clicked
+        const navLinksInMobileMenu = navbarCollapse.querySelectorAll('.nav-link, .btn');
+        navLinksInMobileMenu.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarCollapse.classList.contains('active')) {
+                    navbarCollapse.classList.remove('active');
+                    navbarToggler.setAttribute('aria-expanded', 'false');
+                    const icon = navbarToggler.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+
+        // Optional: Close mobile menu if clicked outside of it
+        document.addEventListener('click', (event) => {
+            const isClickInsideNavbar = navbarToggler.contains(event.target) ||
+                                     navbarCollapse.contains(event.target) ||
+                                     navbarBrand.contains(event.target) || // Check if click is on brand
+                                     (navbarActions && navbarActions.contains(event.target)); // Check if click is on actions
+
+            if (!isClickInsideNavbar && navbarCollapse.classList.contains('active')) {
+                navbarCollapse.classList.remove('active');
+                navbarToggler.setAttribute('aria-expanded', 'false');
+                const icon = navbarToggler.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
 });
