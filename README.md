@@ -2,7 +2,7 @@
 
 CRESSIDA is a static prototype of a prediction market platform, inspired by Polymarket. It was developed as a portfolio project for the Human-Computer Interaction module (HCIN6222) by Uhone Justin Mukwevho (ST10101766).
 
-**Live Demo:** [Link to your GitHub Pages deployment once live]
+**Live Demo:** https://justin-mukwevho.github.io/CRESSIDA/
 
 ## Project Overview
 
@@ -31,7 +31,7 @@ This project demonstrates front-end web development skills using only client-sid
 
 ## Setup and Deployment
 
-1.  Clone the repository: `git clone [your-repo-url]`
+1.  Clone the repository: `git clone [https://github.com/Justin-Mukwevho/CRESSIDA]`
 2.  No build process is required.
 3.  To run locally, it's recommended to use a local web server (e.g., VS Code's Live Server extension, because features like cookies work more reliably over the `http://` protocol than `file:///`.
 4.  The project is configured for deployment on GitHub Pages.
@@ -46,4 +46,4 @@ This project demonstrates front-end web development skills using only client-sid
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
