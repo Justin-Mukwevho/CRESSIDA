@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CRESSIDA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">CRESSIDA</a>
+            <nav class="navbar-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="markets.html" class="nav-link">Markets</a>
+                <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="terms.html" class="nav-link">Terms</a>
+            </nav>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <a href="login.html" id="user-action-btn" class="btn btn-primary" style="display:none;">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-content auth-page">
+        <div class="auth-container card">
+            <h2>Login to CRESSIDA</h2>
+            <form id="login-form">
+                <div id="login-message" class="form-message" style="display: none;"></div>
+                <div class="form-group">
+                    <label for="login-username">Username:</label>
+                    <input type="text" id="login-username" name="username" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="password" class="form-input" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <p class="mt-2 text-center">
+                Don't have an account? <a href="register.html" class="link-accent">Register here</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Intellectual Property of Justin Mukwevho.
+                <a href="https://Justin-Mukwevho.github.io/CRESSIDA/" target="_blank" rel="noopener noreferrer" class="link-accent" style="margin-left: 5px;">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+            </p>
+            <nav class="footer-nav">
+                <a href="about.html" aria-label="About CRESSIDA">About</a>
+                <a href="terms.html" aria-label="Terms of service">Terms</a>
+                <a href="privacy.html" aria-label="Privacy policy">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script> <script src="js/auth.js"></script>
+</body>
+</html>

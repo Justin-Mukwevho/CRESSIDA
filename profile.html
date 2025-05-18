@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - CRESSIDA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">CRESSIDA</a>
+            <nav class="navbar-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="markets.html" class="nav-link">Markets</a>
+                <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="terms.html" class="nav-link">Terms</a>
+            </nav>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <a href="login.html" id="user-action-btn" class="btn btn-primary">Login</a> </div>
+        </div>
+    </header>
+
+    <main class="container page-content" id="profile-content">
+        <div id="user-profile-data" style="display: none;"> <header class="page-header">
+                <h1>Welcome, <span id="profile-username">User</span>!</h1>
+            </header>
+
+            <section class="profile-summary card">
+                <h2>Account Overview</h2>
+                <div class="summary-item">
+                    <span class="summary-label">Current Balance:</span>
+                    <span id="profile-balance" class="summary-value">ZAR 0.00</span>
+                </div>
+                <button id="deposit-btn" class="btn btn-accent mt-1">
+                    <i class="fas fa-plus-circle"></i> Deposit ZAR
+                </button>
+            </section>
+
+            <section class="profile-portfolio card mt-2">
+                <h2>My Portfolio</h2>
+                <div id="portfolio-holdings" class="portfolio-list">
+                    <p id="empty-portfolio-message">You currently have no active holdings.</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="auth-required-message" class="text-center mt-2 card p-2" style="display: none;">
+            <h2>Access Denied</h2>
+            <p>You need to be logged in to view your profile.</p>
+            <a href="login.html" class="btn btn-primary mt-1">Login Now</a>
+        </div>
+
+        <div id="deposit-modal" class="modal" style="display: none;">
+            <div class="modal-content card">
+                <span class="close-btn" id="close-deposit-modal" aria-label="Close deposit modal">&times;</span>
+                <h2>Deposit ZAR</h2>
+                <form id="deposit-form">
+                    <div class="form-group">
+                        <label for="deposit-amount">Amount (ZAR):</label>
+                        <input type="number" id="deposit-amount" class="form-input" placeholder="e.g., 100" min="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Confirm Deposit</button>
+                </form>
+                <p class="small-text mt-1">This is a simulation. No real money will be processed.</p>
+                
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Intellectual Property of Justin Mukwevho.
+                <a href="https://Justin-Mukwevho.github.io/CRESSIDA/" target="_blank" rel="noopener noreferrer" class="link-accent" style="margin-left: 5px;">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+            </p>
+            <nav class="footer-nav">
+                <a href="about.html" aria-label="About CRESSIDA">About</a>
+                <a href="terms.html" aria-label="Terms of service">Terms</a>
+                <a href="privacy.html" aria-label="Privacy policy">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script> <script src="js/auth.js"></script> <script src="js/profile.js"></script>
+</body>
+</html>

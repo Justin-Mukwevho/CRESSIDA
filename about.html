@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - CRESSIDA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">CRESSIDA</a>
+            <nav class="navbar-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="markets.html" class="nav-link">Markets</a>
+                <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                <a href="about.html" class="nav-link">About</a> </nav>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <a href="login.html" id="user-action-btn" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-content">
+        <header class="page-header">
+            <h1>About Me & CRESSIDA</h1>
+        </header>
+
+        <section class="about-content card">
+            <div class="about-grid">
+                <div class="about-image-container">
+                    <img src="images/justin.jpeg" alt="Uhone Justin Mukwevho" class="profile-picture">
+                </div>
+                <div class="about-text">
+                    <h2>Uhone Justin Mukwevho</h2>
+                    <p class="student-id">Student ID: ST10101766</p>
+                    <p>
+                        I am a final year student pursuing a Bachelor of IT in Business Systems. My academic journey has equipped me with a strong foundation in various technologies and problem-solving methodologies.
+                    </p>
+                    <h3>Skills & Expertise:</h3>
+                    <ul>
+                        <li><i class="fas fa-code"></i> Programming: C#, SQL, JavaScript, HTML, CSS</li>
+                        <li><i class="fas fa-database"></i> Database Management: Relational databases, data querying</li>
+                        <li><i class="fas fa-tools"></i> IT Support: Troubleshooting, hardware & software support, IT Technician skills</li>
+                        <li><i class="fas fa-project-diagram"></i> Business Systems Analysis: Understanding business needs and translating them into technical solutions.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <div class="project-info">
+                <h3>About Project CRESSIDA</h3>
+                <p>
+                    CRESSIDA is a static prototype of a Polymarket-inspired prediction market platform, developed as a portfolio project for the Human-Computer Interaction module (HCIN6222) at The Independent Institute of Education. This project showcases the application of front-end web development technologies and UI/UX design principles.
+                </p>
+                <h4>How This Website Was Made:</h4>
+                <p>
+                    This website was built entirely using client-side technologies:
+                </p>
+                <ul>
+                    <li><strong>HTML5:</strong> For structuring the content.</li>
+                    <li><strong>CSS3:</strong> For styling, layout (including Flexbox/Grid), and responsive design. Custom CSS variables are used for theme management (dark/light modes).</li>
+                    <li><strong>JavaScript (ES6+):</strong> For all interactivity, including:
+                        <ul>
+                            <li>Dynamic content rendering (market listings, details, leaderboard).</li>
+                            <li>Simulated user registration and login using browser cookies.</li>
+                            <li>Simulated trading and balance updates (data is not persisted beyond the session).</li>
+                            <li>Client-side form validation.</li>
+                            <li>Theme toggling.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Chart.js:</strong> For displaying historical price trend charts on market detail pages.</li>
+                    <li><strong>Font Awesome:</strong> For icons.</li>
+                </ul>
+                <p>
+                    All data (markets, users, leaderboard entries) is hardcoded within JavaScript files. No backend database or server-side processing is used, making this a fully static website designed to demonstrate front-end capabilities and user interface design. Development occurred around May 2025.
+                </p>
+            </div>
+
+            <hr class="section-divider">
+
+            <div class="contact-info text-center">
+                <h3>Get in Touch</h3>
+                <p>
+                    <a href="mailto:ST10101766@rcconnect.edu.za" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Email Me: ST10101766@rcconnect.edu.za
+                    </a>
+                </p>
+                <p>
+                    <a href="https://wa.me/27694151766" target="_blank" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp (+27 69 415 1766)
+                    </a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Intellectual Property of Justin Mukwevho.
+                <a href="https://Justin-Mukwevho.github.io/CRESSIDA/" target="_blank" rel="noopener noreferrer" class="link-accent" style="margin-left: 5px;">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+            </p>
+            <nav class="footer-nav">
+                <a href="about.html" aria-label="About CRESSIDA">About</a>
+                <a href="terms.html" aria-label="Terms of service">Terms</a>
+                <a href="privacy.html" aria-label="Privacy policy">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script> </body>
+</html>

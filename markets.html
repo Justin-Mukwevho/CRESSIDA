@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markets - CRESSIDA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">CRESSIDA</a>
+            <nav class="navbar-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="markets.html" class="nav-link">Markets</a>
+                <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="terms.html" class="nav-link">Terms</a>
+            </nav>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <a href="login.html" id="user-action-btn" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-content">
+        <header class="page-header">
+            <h1>Explore Markets</h1>
+            <div class="market-controls">
+                <input type="search" id="search-bar" class="form-input" placeholder="Search markets by question or category..." aria-label="Search markets">
+                <div class="category-filters">
+                    <button class="btn btn-outline filter-btn active" data-category="all" aria-pressed="true">
+                        <i class="fas fa-globe"></i> All
+                    </button>
+                    <button class="btn btn-outline filter-btn" data-category="Politics" aria-pressed="false">
+                        <i class="fas fa-vote-yea"></i> Politics
+                    </button>
+                    <button class="btn btn-outline filter-btn" data-category="Sports" aria-pressed="false">
+                        <i class="fas fa-futbol"></i> Sports
+                    </button>
+                    <button class="btn btn-outline filter-btn" data-category="Weather" aria-pressed="false">
+                        <i class="fas fa-cloud-sun-rain"></i> Weather
+                    </button>
+                    </div>
+            </div>
+        </header>
+
+        <section id="market-listing-section" class="market-grid" aria-live="polite">
+            <p id="no-markets-message" class="text-center" style="display: none;">No markets found matching your criteria.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Intellectual Property of Justin Mukwevho.
+                <a href="https://Justin-Mukwevho.github.io/CRESSIDA/" target="_blank" rel="noopener noreferrer" class="link-accent" style="margin-left: 5px;">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+            </p>
+            <nav class="footer-nav">
+                <a href="about.html" aria-label="About CRESSIDA">About</a>
+                <a href="terms.html" aria-label="Terms of service">Terms</a>
+                <a href="privacy.html" aria-label="Privacy policy">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script> <script src="js/markets.js"></script>
+</body>
+</html>

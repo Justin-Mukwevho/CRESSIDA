@@ -1,0 +1,1072 @@
+/* Global Resets and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Fallback font as requested */
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* THEME VARIABLES */
+/* Dark Theme (Default) */
+:root, html[data-theme="dark"] {
+    --bg-color: #101014;
+    --surface-color: #1A1A20;
+    --border-color: #2C2C34;
+    --primary-text-color: #F0F0F5;
+    --secondary-text-color: #A0A0B0;
+    --accent-color: #6A0DAD; /* Purple */
+    --accent-hover-color: #8A2BE2;
+    --accent-disabled-color: #4B0082;
+    --yes-color: #00C853; /* Green */
+    --yes-hover-color: #00E676;
+    --no-color: #FF3D00;  /* Red/Orange */
+    --no-hover-color: #FF6E40;
+    --chart-grid-color: #2C2C34;
+    --chart-label-color: #A0A0B0;
+
+    /* Specifics for Polymarket look */
+    --button-text-color: #FFFFFF;
+    --input-bg-color: #25252D; /* Slightly different for inputs */
+    --input-text-color: var(--primary-text-color);
+    --input-border-color: var(--border-color);
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --modal-bg-color: var(--surface-color);
+}
+
+/* Light Theme */
+html[data-theme="light"] {
+    --bg-color: #F4F6F8;
+    --surface-color: #FFFFFF;
+    --border-color: #D1D5DB;
+    --primary-text-color: #111827;
+    --secondary-text-color: #6B7280;
+    --accent-color: #5D00A6;
+    --accent-hover-color: #7C1EC1;
+    --accent-disabled-color: #D1C4E9;
+    --yes-color: #00A743;
+    --yes-hover-color: #00C853;
+    --no-color: #E02900;
+    --no-hover-color: #FF3D00;
+    --chart-grid-color: #E5E7EB;
+    --chart-label-color: #6B7280;
+
+    --button-text-color: #FFFFFF;
+    --input-bg-color: #FFFFFF;
+    --input-text-color: var(--primary-text-color);
+    --input-border-color: var(--border-color);
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --modal-bg-color: var(--surface-color);
+}
+
+/* Apply Theme */
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+}
+
+/* NAVBAR STYLES */
+.navbar {
+    background-color: var(--surface-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 1.5rem; /* Space between nav links */
+}
+
+.nav-link {
+    color: var(--primary-text-color);
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent-color);
+}
+
+.nav-link::after { /* Underline effect for active/hover */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-toggle-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--primary-text-color);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+    border-color: var(--accent-color);
+}
+
+/* BUTTONS */
+.btn {
+    padding: 0.65rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+}
+.btn-primary:hover {
+    background-color: var(--accent-hover-color);
+}
+.btn-primary:disabled {
+    background-color: var(--accent-disabled-color);
+    cursor: not-allowed;
+}
+
+.btn-accent { /* Can be same as primary or a variation */
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+}
+.btn-accent:hover {
+    background-color: var(--accent-hover-color);
+}
+
+.btn-yes {
+    background-color: var(--yes-color);
+    color: var(--button-text-color);
+}
+.btn-yes:hover {
+    background-color: var(--yes-hover-color);
+}
+
+.btn-no {
+    background-color: var(--no-color);
+    color: var(--button-text-color);
+}
+.btn-no:hover {
+    background-color: var(--no-hover-color);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+.btn-outline:hover {
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+}
+
+
+/* HERO SECTION */
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    background-color: var(--surface-color); /* Or a gradient/image */
+    margin-top: 2rem;
+    border-radius: 8px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-text-color);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--secondary-text-color);
+}
+
+/* HOW IT WORKS SECTION */
+.how-it-works {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    color: var(--primary-text-color);
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    flex-wrap: wrap; /* For responsiveness */
+}
+
+.step {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    flex-basis: calc(33.333% - 2rem); /* Adjust for gap */
+    min-width: 280px; /* Ensure cards don't get too small */
+}
+
+.step i {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-text-color);
+}
+
+.step p {
+    color: var(--secondary-text-color);
+}
+
+
+/* FOOTER STYLES */
+.footer {
+    background-color: var(--surface-color);
+    color: var(--secondary-text-color);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 3rem;
+}
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* For smaller screens */
+}
+.footer p {
+    margin-bottom: 0.5rem;
+}
+.footer-nav a {
+    color: var(--secondary-text-color);
+    margin-left: 1rem;
+}
+.footer-nav a:hover {
+    color: var(--accent-color);
+}
+
+
+/* UTILITY CLASSES */
+.text-center {
+    text-align: center;
+}
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.p-1 { padding: 1rem; }
+.p-2 { padding: 2rem; }
+
+/* Add more specific styles for cards, forms, modals etc. as we build them */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar-nav {
+        margin-top: 1rem;
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem; /* Smaller gap for vertical layout */
+    }
+    .navbar-nav .nav-link {
+        padding: 0.5rem; /* Make touch targets larger */
+        border-bottom: 1px solid var(--border-color);
+    }
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+    .navbar-actions {
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    .step {
+        flex-basis: 100%;
+        width: 100%;
+    }
+    .footer .container {
+        flex-direction: column;
+    }
+    .footer-nav {
+        margin-top: 0.5rem;
+    }
+    .footer-nav a {
+        margin: 0 0.5rem;
+    }
+}
+
+/* css/style.css additions */
+
+/* PAGE STRUCTURE */
+.page-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    min-height: calc(100vh - 120px - 70px); /* Full viewport height minus header and footer approx heights */
+}
+
+.page-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.page-header h1 {
+    font-size: 2.2rem; /* Consistent page heading size */
+    color: var(--primary-text-color);
+    margin-bottom: 0.5rem;
+}
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+}
+
+
+/* CARDS (Generic styling for content blocks) */
+.card {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
+
+/* AUTHENTICATION PAGES (Login & Register) */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top for longer forms if needed */
+    padding-top: 3rem;
+}
+.auth-container {
+    width: 100%;
+    max-width: 450px; /* Max width for auth forms */
+}
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--primary-text-color);
+}
+
+/* FORMS */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--primary-text-color);
+}
+.form-input, .form-select { /* Added .form-select for consistency */
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-input:focus, .form-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb, 106, 13, 173), 0.3); /* Create --accent-color-rgb if needed or use a fixed rgba */
+}
+.form-hint {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+    margin-top: 0.3rem;
+}
+.form-message {
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+.form-message.success {
+    background-color: rgba(var(--yes-color-rgb, 0, 200, 83), 0.1); /* Create --yes-color-rgb */
+    color: var(--yes-color);
+    border: 1px solid var(--yes-color);
+}
+.form-message.error {
+    background-color: rgba(var(--no-color-rgb, 255, 61, 0), 0.1); /* Create --no-color-rgb */
+    color: var(--no-color);
+    border: 1px solid var(--no-color);
+}
+
+/* For --accent-color-rgb, --yes-color-rgb, --no-color-rgb, you'll need to define them if you use the rgba trick for backgrounds.
+   Example for dark theme in :root or html[data-theme="dark"]:
+   --accent-color-rgb: 106, 13, 173;
+   --yes-color-rgb: 0, 200, 83;
+   --no-color-rgb: 255, 61, 0;
+   And similar for light theme. Or simplify the background to a solid color.
+   For simplicity now, let's use solid, less transparent messages.
+*/
+.form-message.success {
+    background-color: var(--yes-color);
+    color: var(--button-text-color); /* Assuming white text on colored background */
+    opacity: 0.8;
+}
+.form-message.error {
+    background-color: var(--no-color);
+    color: var(--button-text-color);
+    opacity: 0.8;
+}
+
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.link-accent {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+.link-accent:hover {
+    text-decoration: underline;
+}
+
+
+/* MODALS (for Deposit, Trade) */
+.modal {
+    display: none; /* Hidden by default, shown by JS */
+    position: fixed;
+    z-index: 1001; /* Above navbar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Dimmed background */
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background-color: var(--modal-bg-color);
+    margin: auto;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--primary-text-color);
+}
+.close-btn {
+    color: var(--secondary-text-color);
+    float: right; /* Old school, but effective for simple close */
+    font-size: 1.8rem;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+.small-text {
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+}
+
+/* STYLED TABLES (for Leaderboard, Portfolio) */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse; /* Clean look */
+    margin-top: 1rem;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    overflow: hidden; /* To respect border-radius on th/td */
+    box-shadow: var(--card-shadow);
+}
+.styled-table th, .styled-table td {
+    padding: 0.9rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+.styled-table th {
+    background-color: rgba(var(--accent-color-rgb, 106, 13, 173), 0.1); /* Light accent background */
+    /* Fallback if not using RGB vars for accent */
+    /* background-color: var(--accent-disabled-color); */
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase; /* Common for table headers */
+}
+.styled-table tbody tr:last-child td {
+    border-bottom: none; /* No border for the last row */
+}
+.styled-table tbody tr:hover {
+    background-color: rgba(var(--accent-color-rgb, 106, 13, 173), 0.05); /* Subtle hover */
+}
+/* Example if not using RGB: */
+html[data-theme="dark"] .styled-table th { background-color: #2a2a3c; }
+html[data-theme="light"] .styled-table th { background-color: #e8e4f0; }
+html[data-theme="dark"] .styled-table tbody tr:hover { background-color: #1f1f26; }
+html[data-theme="light"] .styled-table tbody tr:hover { background-color: #f9f7fc; }
+
+
+/* MARKET CONTROLS (Markets Page) */
+.market-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.market-controls #search-bar {
+    max-width: 100%; /* Full width on mobile, can be capped on desktop */
+}
+.category-filters {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 0.75rem;
+}
+.category-filters .filter-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+.category-filters .filter-btn.active {
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+    border-color: var(--accent-color);
+}
+.category-filters .filter-btn i {
+    margin-right: 0.4rem;
+}
+
+/* MARKET GRID & CARDS (Markets Page) */
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 1.5rem;
+}
+.market-card { /* Extends .card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes button to bottom */
+}
+.market-card h3 { /* Question */
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-text-color);
+    line-height: 1.4;
+}
+.market-card .category-badge {
+    display: inline-block;
+    background-color: rgba(var(--accent-color-rgb, 106, 13, 173), 0.15);
+    /* Fallback: */
+    /* background-color: var(--accent-disabled-color); */
+    color: var(--accent-color);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+html[data-theme="dark"] .market-card .category-badge { background-color: #2a2a3c;}
+html[data-theme="light"] .market-card .category-badge { background-color: #e8e4f0;}
+
+.market-prices {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.price-yes { color: var(--yes-color); font-weight: bold; }
+.price-no { color: var(--no-color); font-weight: bold; }
+
+.market-card .btn {
+    margin-top: auto; /* Pushes button to bottom if card content height varies */
+}
+
+/* PROFILE PAGE SPECIFIC */
+.profile-summary .summary-item, .profile-portfolio .portfolio-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.profile-summary .summary-item:last-child, .profile-portfolio .portfolio-item:last-child {
+    border-bottom: none;
+}
+.summary-label, .portfolio-label {
+    color: var(--secondary-text-color);
+}
+.summary-value, .portfolio-value {
+    font-weight: bold;
+    color: var(--primary-text-color);
+}
+#empty-portfolio-message {
+    padding: 1rem 0;
+    color: var(--secondary-text-color);
+    text-align: center;
+}
+#auth-required-message h2 {
+    color: var(--no-color);
+}
+
+
+/* In css/style.css */
+
+/* MARKET GRID & CARDS (Enhancements) */
+.market-card {
+    /* ... existing styles ... */
+    border: 1px solid var(--border-color); /* Ensure border is visible */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.market-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
+}
+html[data-theme="dark"] .market-card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+
+.market-card-image { /* Already in market.js HTML, just ensuring style block */
+    width: 100%;
+    height: 150px; /* Or your preferred height */
+    object-fit: cover; /* Ensures image covers the area, might crop */
+    border-radius: 6px 6px 0 0; /* Match card top radius */
+    background-color: var(--border-color); /* Placeholder bg if image fails */
+}
+
+.market-card-content { /* Wrapper for text below image */
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows button to be pushed to bottom */
+}
+
+.market-card h3 { /* Question */
+    font-size: 1.15rem; /* Slightly adjusted */
+    margin-bottom: 0.5rem;
+    color: var(--primary-text-color);
+    line-height: 1.4;
+    flex-grow: 1; /* Allow h3 to take up space if market prices below are short */
+}
+
+.market-volume-liquidity {
+    font-size: 0.8rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 0.75rem;
+}
+
+.market-card .btn {
+    margin-top: auto; /* Pushes button to bottom */
+}
+
+
+/* css/style.css additions */
+
+.market-detail-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Main content takes 2/3, sidebar 1/3 */
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.market-detail-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.market-detail-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* In css/style.css, you can control this more globally */
+.market-chart-section .chart-container {
+    position: relative;
+    height: 280px; /* Default height */
+    width: 100%;
+}
+
+.market-info-section p {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+.market-info-section p strong {
+    color: var(--primary-text-color);
+}
+
+.current-prices-detail {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    background-color: rgba(var(--accent-color-rgb, 106, 13, 173), 0.05); /* Subtle bg */
+    border-radius: 4px;
+}
+html[data-theme="dark"] .current-prices-detail { background-color: #1f1f26; }
+html[data-theme="light"] .current-prices-detail { background-color: #f4f0f8; }
+
+
+.outcome-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem; /* Space below buttons */
+}
+.outcome-selector .btn {
+    flex-grow: 1; /* Make buttons take equal width */
+}
+/* Styles for selected outcome button */
+.outcome-selector .btn.selected-outcome {
+    box-shadow: 0 0 0 2px var(--primary-text-color); /* Highlight selected */
+    /* or use background-color and text color change */
+}
+.btn-yes-outline { /* Custom outline for trade buttons */
+    background-color: transparent;
+    color: var(--yes-color);
+    border: 1px solid var(--yes-color);
+}
+.btn-yes-outline:hover, .btn-yes-outline.selected-outcome {
+    background-color: var(--yes-color);
+    color: var(--button-text-color);
+}
+.btn-no-outline {
+    background-color: transparent;
+    color: var(--no-color);
+    border: 1px solid var(--no-color);
+}
+.btn-no-outline:hover, .btn-no-outline.selected-outcome {
+    background-color: var(--no-color);
+    color: var(--button-text-color);
+}
+
+
+.trade-summary {
+    background-color: var(--input-bg-color); /* Use input background for consistency */
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+}
+.trade-summary p {
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
+.trade-summary p:last-child {
+    margin-bottom: 0;
+}
+.trade-summary span {
+    font-weight: bold;
+}
+
+.order-book-tabs {
+    display: flex;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.order-book-tabs .btn {
+    flex-grow: 1;
+    border-radius: 4px 4px 0 0;
+    border-bottom-color: transparent; /* Seamless with active tab */
+    opacity: 0.7;
+}
+.order-book-tabs .btn.active {
+    background-color: var(--surface-color); /* Match card bg */
+    border-color: var(--border-color);
+    border-bottom-color: var(--surface-color); /* Hide bottom border for active tab */
+    opacity: 1;
+    color: var(--accent-color);
+    position: relative;
+    top: 1px; /* To make it sit on top of the content border */
+}
+
+.order-book-table th, .order-book-table td {
+    padding: 0.5rem 0.6rem; /* Smaller padding for order book */
+    font-size: 0.85rem;
+}
+.order-book-table td:nth-child(1) { /* Price column */ color: var(--accent-color); }
+.order-book-table .order-book-bids td:nth-child(1) { color: var(--yes-color); } /* Or keep accent */
+.order-book-table .order-book-asks td:nth-child(1) { color: var(--no-color); } /* Or keep accent */
+
+
+.market-meta-item {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-left: 1rem;
+}
+
+@media (max-width: 992px) { /* Tablet and smaller */
+    .market-detail-grid {
+        grid-template-columns: 1fr; /* Stack main and sidebar */
+    }
+    .market-detail-sidebar {
+        margin-top: 1.5rem;
+    }
+}
+
+
+/* css/style.css additions for About Page */
+
+.about-content {
+    line-height: 1.7;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Image column size to content, text takes rest */
+    gap: 2rem;
+    align-items: flex-start; /* Align items to the top */
+    margin-bottom: 2rem;
+}
+
+.about-image-container {
+    width: 180px; /* Adjust as needed */
+    height: 180px;
+    flex-shrink: 0; /* Prevent image container from shrinking */
+}
+
+.profile-picture {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Circular picture */
+    object-fit: cover;
+    border: 3px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+html[data-theme="dark"] .profile-picture {
+    border-color: var(--accent-color);
+}
+
+
+.about-text h2 {
+    font-size: 1.8rem;
+    color: var(--primary-text-color);
+    margin-bottom: 0.25rem;
+}
+.student-id {
+    font-size: 0.95rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 1rem;
+}
+
+.about-text h3, .project-info h3, .contact-info h3 {
+    font-size: 1.4rem;
+    color: var(--primary-text-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.25rem;
+}
+
+.about-text ul, .project-info ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+.about-text ul li, .project-info ul li {
+    margin-bottom: 0.5rem;
+    color: var(--primary-text-color);
+}
+.about-text ul li i, .project-info ul li i {
+    margin-right: 0.75rem;
+    color: var(--accent-color);
+    width: 20px; /* Align icons */
+    text-align: center;
+}
+.project-info ul ul { /* Nested list for JS details */
+    margin-top: 0.5rem;
+    margin-left: 1.5rem; /* Indent nested list */
+    font-size: 0.95rem;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 2.5rem 0;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+}
+
+.btn-whatsapp {
+    background-color: #25D366; /* WhatsApp Green */
+    color: white;
+    border: 1px solid #1DAA54; /* Darker green border */
+}
+.btn-whatsapp:hover {
+    background-color: #1DAA54; /* Darker WhatsApp Green on hover */
+    color: white;
+}
+.btn-whatsapp i {
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr; /* Stack image and text */
+        text-align: center;
+    }
+    .about-image-container {
+        margin: 0 auto 1.5rem auto; /* Center image */
+    }
+    .about-text h3, .project-info h3, .contact-info h3 {
+        text-align: left; /* Keep headings left-aligned for readability */
+    }
+     .about-text ul, .project-info ul {
+        text-align: left;
+    }
+}
+
+/* css/style.css additions for Static Pages like Terms, Privacy */
+.static-page-content h2 {
+    font-size: 1.6rem;
+    color: var(--primary-text-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+.static-page-content h2:first-child {
+    margin-top: 0;
+}
+.static-page-content p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: var(--primary-text-color);
+}
+.static-page-content ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+.static-page-content ul li {
+    margin-bottom: 0.5rem;
+}
+.static-page-content .small-text {
+    color: var(--secondary-text-color);
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+
+/* css/style.css additions for Profile Portfolio */
+.portfolio-list-items {
+    list-style: none;
+    padding: 0;
+}
+.portfolio-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.portfolio-item:last-child {
+    border-bottom: none;
+}
+.portfolio-item-question {
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    color: var(--primary-text-color);
+}
+.portfolio-item-details {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 0.5rem; /* Space between detail items */
+}
+.portfolio-item-details strong {
+    color: var(--primary-text-color);
+}
+.text-yes { color: var(--yes-color); }
+.text-no { color: var(--no-color); }
