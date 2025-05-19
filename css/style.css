@@ -857,13 +857,7 @@ html[data-theme="dark"] .market-card:hover {
 }
 
 
-.market-card-image { /* Already in market.js HTML, just ensuring style block */
-    width: 100%;
-    height: 150px; /* Or your preferred height */
-    object-fit: cover; /* Ensures image covers the area, might crop */
-    border-radius: 6px 6px 0 0; /* Match card top radius */
-    background-color: var(--border-color); /* Placeholder bg if image fails */
-}
+
 
 .market-card-content { /* Wrapper for text below image */
     padding: 1rem;
@@ -1213,3 +1207,52 @@ html[data-theme="dark"] .profile-picture {
 }
 .text-yes { color: var(--yes-color); }
 .text-no { color: var(--no-color); }
+
+/* css/style.css additions for Comments Section */
+.market-comments-section {
+    margin-top: 1.5rem; /* Add some space if it's the last item in main column */
+}
+.market-comments-section h2 {
+    margin-bottom: 1rem;
+}
+.comments-ul {
+    list-style: none;
+    padding: 0;
+}
+.comment-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.comment-item:last-child {
+    border-bottom: none;
+}
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
+}
+.comment-username {
+    font-weight: bold;
+    color: var(--accent-color); /* Or primary text color */
+}
+.comment-timestamp {
+    font-size: 0.8rem;
+    color: var(--secondary-text-color);
+}
+.comment-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--primary-text-color);
+    word-wrap: break-word; /* Prevent long words from breaking layout */
+}
+.add-comment-form-container h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+.add-comment-form-container textarea {
+    margin-bottom: 0.5rem;
+}
+.no-comments-message {
+    color: var(--secondary-text-color);
+}

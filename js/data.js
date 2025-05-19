@@ -29,7 +29,25 @@ const marketsData = [
             ]
         },
         totalVolumeTraded: 17500, // Example value
-        totalLiquidity: 5000 // Example sum of quantities in order book or similar metric
+        totalLiquidity: 5000, // Example sum of quantities in order book or similar metric
+
+        comments: [
+            {
+                username: "WeatherWatcher",
+                timestamp: "2025-05-18T10:30:00Z",
+                text: "The clouds are looking pretty dark to the west. I'm saying YES."
+            },
+            {
+                username: "SunnyOptimist",
+                timestamp: "2025-05-18T11:15:00Z",
+                text: "Nah, I think it'll pass us by. Sticking with NO."
+            },
+            {
+                username: "DataDrivenDave",
+                timestamp: "2025-05-18T11:45:00Z",
+                text: "YR.no says 60% chance, AccuWeather says 45%. It's a toss-up, but the current YES price at 60c seems fair."
+            }
+        ]
     },
     {
         id: 2,
@@ -57,7 +75,24 @@ const marketsData = [
             ]
         },
         totalVolumeTraded: 32000,
-        totalLiquidity: 7500
+        totalLiquidity: 7500,
+        comments: [
+            {
+                username: "PoliticalPundit",
+                timestamp: "2029-05-30T12:00:00Z",
+                text: "The ANC's support seems to be growing, but can they maintain it until the election?"
+            },
+            {
+                username: "ElectionExpert",
+                timestamp: "2029-05-30T12:30:00Z",
+                text: "I wouldn't count them out. The opposition is fragmented."
+            },
+            {
+                username: "Voter2029",
+                timestamp: "2029-05-30T12:45:00Z",
+                text: "I'm still skeptical. The ANC has a lot to prove."
+            }
+        ]
     },
     {
         id: 3,
@@ -85,7 +120,25 @@ const marketsData = [
             ]
         },
         totalVolumeTraded: 45000,
-        totalLiquidity: 9000
+        totalLiquidity: 9000,
+        comments: [
+            {
+                username: "F1Fanatic",
+                timestamp: "2025-05-18T10:00:00Z",
+                text: "Verstappen's form is incredible this season. I'm all in on YES."
+            },
+            {
+                username: "SkepticalFan",
+                timestamp: "2025-05-18T10:15:00Z",
+                text: "It's too early to call it. Anything can happen in F1."
+            },
+            {
+                username: "RaceAnalyst",
+                timestamp: "2025-05-18T10:30:00Z",
+                text: "The competition is fierce, but Verstappen has the edge."
+            }
+        ]
+
     },
     {
         id: 4,
@@ -113,7 +166,24 @@ const marketsData = [
             ]
         },
         totalVolumeTraded: 25000,
-        totalLiquidity: 6000
+        totalLiquidity: 6000,
+        comments: [
+            {
+                username: "LoadsheddingWatcher",
+                timestamp: "2025-05-18T09:00:00Z",
+                text: "Eskom's track record suggests we might see Stage 4 soon."
+            },
+            {
+                username: "OptimisticCitizen",
+                timestamp: "2025-05-18T09:15:00Z",
+                text: "I think they will manage to keep it under control this time."
+            },
+            {
+                username: "PowerAnalyst",
+                timestamp: "2025-05-18T09:30:00Z",
+                text: "The current situation looks dire. I'm betting on YES."
+            }
+        ]
     },
     // Add more markets as desired
     // Ensure to have a variety of categories and types of markets for testing
@@ -143,7 +213,24 @@ const marketsData = [
             ]
         },
         totalVolumeTraded: 60000,
-        totalLiquidity: 12000
+        totalLiquidity: 12000,
+        comments: [
+            {
+                username: "RugbyFan",
+                timestamp: "2025-05-18T08:00:00Z",
+                text: "The Springboks are looking strong this year. I'm betting on YES."
+            },
+            {
+                username: "CautiousBet",
+                timestamp: "2025-05-18T08:15:00Z",
+                text: "It's a tough competition. I think they might not make it."
+            },
+            {
+                username: "RugbyAnalyst",
+                timestamp: "2025-05-18T08:30:00Z",
+                text: "The odds are in their favor, but anything can happen in rugby."
+            }
+        ]
     },
     {
         id: 6,
@@ -171,10 +258,27 @@ const marketsData = [
             ]
         },
         totalVolumeTraded: 15000,
-        totalLiquidity: 3000
-
+        totalLiquidity: 3000,
+        comments: [
+            {
+                username: "MusicLover",
+                timestamp: "2025-05-18T07:00:00Z",
+                text: "I can't wait for his next album! Definitely betting on YES."
+            }
+            ,
+            {
+                username: "SkepticalFan",
+                timestamp: "2025-05-18T07:15:00Z",
+                text: "He hasn't announced anything yet. I'm going with NO."
+            },
+            {
+                username: "MusicAnalyst",
+                timestamp: "2025-05-18T07:30:00Z",
+                text: "Given his recent singles, a new album seems likely."
+            }
+        ]
     },
-{
+    {
         id: 7,
         question: "Will Stage 8 loadshedding be implemented in South Africa in 2025?",
         category: "Politics",
@@ -200,7 +304,24 @@ const marketsData = [
             ]
         },
         totalVolumeTraded: 20000,
-        totalLiquidity: 4000
+        totalLiquidity: 4000,
+        comments: [
+            {
+                username: "LoadsheddingExpert",
+                timestamp: "2025-05-18T06:00:00Z",
+                text: "Given the current state of the grid, Stage 8 is a real possibility."
+            },
+            {
+                username: "OptimisticCitizen",
+                timestamp: "2025-05-18T06:15:00Z",
+                text: "I think they will manage to avoid it. Betting on NO."
+            },
+            {
+                username: "PowerAnalyst",
+                timestamp: "2025-05-18T06:30:00Z",
+                text: "The situation is dire. I'm going with YES."
+            }
+        ]
     },
     {
         id: 8,
@@ -228,7 +349,24 @@ const marketsData = [
             ]
         },
         totalVolumeTraded: 30000,
-        totalLiquidity: 6000
+        totalLiquidity: 6000,
+        comments: [
+            {
+                username: "CryptoAdvocate",
+                timestamp: "2025-05-18T05:00:00Z",
+                text: "The government is finally taking crypto seriously. I'm betting on YES."
+            },
+            {
+                username: "SkepticalTrader",
+                timestamp: "2025-05-18T05:15:00Z",
+                text: "I don't think they will. Betting on NO."
+            },
+            {
+                username: "PolicyAnalyst",
+                timestamp: "2025-05-18T05:30:00Z",
+                text: "The current trends suggest regulation is coming soon."
+            }
+        ]
     },
     
     {
@@ -257,7 +395,24 @@ const marketsData = [
             ]
         },
         totalVolumeTraded: 40000,
-        totalLiquidity: 8000
+        totalLiquidity: 8000,
+        comments: [
+            {
+                username: "PoliticalAnalyst",
+                timestamp: "2029-05-18T04:00:00Z",
+                text: "The DA's support is growing. I'm betting on YES."
+            },
+            {
+                username: "CautiousVoter",
+                timestamp: "2029-05-18T04:15:00Z",
+                text: "I think they will struggle to reach that mark."
+            },
+            {
+                username: "ElectionWatcher",
+                timestamp: "2029-05-18T04:30:00Z",
+                text: "The current trends suggest a strong performance for the DA."
+            }
+        ]
     }
 
 

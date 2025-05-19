@@ -17,8 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // e.g., market-detail.html?id=1
         const detailUrl = `market-detail.html?id=${market.id}`;
 
-        // Fallback image if market.image is not provided
-        //const imageSrc = market.image || 'https://via.placeholder.com/300x150?text=Market+Image';
+       
 
         return `
             <div class="card market-card" data-market-id="${market.id}" data-category="${market.category.toLowerCase()}">
